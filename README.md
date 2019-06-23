@@ -1,13 +1,15 @@
-# TeamBot
+# Muggle Contraption
 
-## A bot to help manage team roles on a Pokemon Go Discord server
+## A bot to help manage functionality on a Harry Potter - Wizards Unite Discord server
 
 ### Development
 
 #### Installation
 
-* Clone repository by running ```git clone https://github.com/0x736a64/TeamBot.git```
+* Clone repository by running ```git clone https://github.com/0x736a64/Muggle_Contraption.git```
 
-* Navigate to bot directory ```cd TeamBot```
+* Navigate to bot directory ```cd Muggle_Contraption```
 
 * Install node dependencies by running ```npm install```
+
+* Run bot by running ```node bot.js```
