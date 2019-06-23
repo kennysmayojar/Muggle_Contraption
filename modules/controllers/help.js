@@ -26,7 +26,7 @@ const showAreas = function (msg, args, config) {
         .setDescription(`${config.botName} will add the following roles if you type a prefix and iam, like "!iam yardley".`);
 
     areas.forEach(area => {
-        areaMsg.addField("", area, false);
+        areaMsg.addField("-", area, false);
     });
 
     msg.channel.send(areaMsg);
