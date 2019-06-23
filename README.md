@@ -6,7 +6,7 @@
 
 #### Installation
 
-* Clone repository by running ```git clone https://github.com/0x736a64/Muggle_Contraption.git```
+* Clone repository by running ```git clone git@github.com:0x736a64/Muggle_Contraption.git```
 
 * Navigate to bot directory ```cd Muggle_Contraption```
 
