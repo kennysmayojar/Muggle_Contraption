@@ -1,23 +1,23 @@
 const Discord = require("discord.js");
 
 const isHouse = function (houseName, config) {
-    return Object.keys(config.houses).includes(houseName);
+    return Object.keys(config.houses).includes(houseName.toLowerCase());
 };
 
 const isProfession = function (professionName, config) {
-    return Object.keys(config.professions).includes(professionName);
+    return Object.keys(config.professions).includes(professionName.toLowerCase());
 };
 
 const addHouse = function (msg, args, config) {
     let houseName = args[0];
-    let house = msg.guild.roles.find(role => role.name === houseName);
+    let house = msg.guild.roles.find(role => role.name.toLowerCase() === houseName.toLowerCase());
     let user = msg.member;
     let houseMsg;
 
     if (houseName === "") return;
     
     if (house) {
-        if (msg.member.roles.some(house => houseName === house.name)) {
+        if (msg.member.roles.some(house => houseName.toLowerCase() === house.name.toLowerCase())) {
             houseMsg = new Discord.RichEmbed()
             .setColor(config.colors.error)
             .setTitle(`${msg.member.user.tag} Your house is already set to **${house.name}**.`);
@@ -39,13 +39,13 @@ const addHouse = function (msg, args, config) {
 
 const addProfession = function (msg, args, config) {
     let professionName = args[0];
-    let profession = msg.guild.roles.find(role => role.name === professionName);
+    let profession = msg.guild.roles.find(role => role.name.toLowerCase() === professionName.toLowerCase());
     let user = msg.member;
     let professionMsg;
 
     if (professionName === "") return;
     if (profession) {
-        if (msg.member.roles.some(profession => professionName === profession.name)) {
+        if (msg.member.roles.some(profession => professionName.toLowerCase() === profession.name.toLowerCase())) {
             professionMsg = new Discord.RichEmbed()
             .setColor(config.colors.error)
             .setTitle(`${msg.member.user.tag} Your profession is already set to **${profession.name}**.`);
@@ -91,14 +91,14 @@ const removeProfession = function (msg, config) {
 
 const addLocation = function (msg, args, config) {
     let locationName = args[0];
-    let location = msg.guild.roles.find(role => role.name === locationName);
+    let location = msg.guild.roles.find(role => role.name.toLowerCase() === locationName.toLowerCase());
     let user = msg.member;
     let locationMsg;
     
     if (locationName === "") return;
     
     if (location) {
-        if (msg.member.roles.some(role => role.name === locationName)) {
+        if (msg.member.roles.some(role => role.name.toLowerCase() === locationName.toLowerCase())) {
             locationMsg = new Discord.RichEmbed()
                 .setColor(config.colors.success)
                 .setTitle(`${msg.member.user.tag} You already have the **${location.name}** role.`);
@@ -125,14 +125,14 @@ const addLocation = function (msg, args, config) {
 
 const removeLocation = function (msg, args, config) {
     let locationName = args[0];
-    let location = msg.guild.roles.find(role => role.name === locationName);
+    let location = msg.guild.roles.find(role => role.name.toLowerCase() === locationName.toLowerCase());
     let user = msg.member;
     let locationMsg;
     
     if (locationName === "") return;
     
     if (location) {
-        if (msg.member.roles.some(location => locationName === location.name)) {
+        if (msg.member.roles.some(location => locationName.toLowerCase() === location.name.toLowerCase())) {
             user.removeRole(location).catch(console.error);
             locationMsg = new Discord.RichEmbed()
                 .setColor(config.colors.success)
